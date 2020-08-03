@@ -1,7 +1,6 @@
 /* 
 resolve Fibonacci using recursion
 */
-
 function resFibonacci(n) {
     var fibArr;
     function fiboHelper(i) {
