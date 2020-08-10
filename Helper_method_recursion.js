@@ -84,4 +84,6 @@ pairArr( i+2)
   pairArr(0)
   return result
 }
-console.log(arrayPairs([1,2,3,4,5,6]))
+console.log(arrayPairs([1, 2, 3, 4, 5, 6]))
+
+
