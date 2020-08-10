@@ -87,3 +87,17 @@ pairArr( i+2)
 console.log(arrayPairs([1, 2, 3, 4, 5, 6]))
 
 
+//  arrayPairs([1, 2, 3, 4, 5])     =>    [[1,2], [3,4], [5, undefined]]
+
+function arrayPairs(arr) {
+  // YOUR WORK HERE
+  let result = [];
+  function pairArr(i){
+    if(i >= arr.length ) return;
+   result.push([arr[i], arr[i+1]])
+pairArr( i+2)
+  }
+  pairArr(0)
+  return result
+}
+console.log(arrayPairs([1,2,3,4,5,6]))
