@@ -86,7 +86,6 @@ pairArr( i+2)
 }
 console.log(arrayPairs([1, 2, 3, 4, 5, 6]))
 
-
 //  arrayPairs([1, 2, 3, 4, 5])     =>    [[1,2], [3,4], [5, undefined]]
 
 function arrayPairs(arr) {
