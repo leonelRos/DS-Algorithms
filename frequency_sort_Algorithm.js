@@ -5,24 +5,6 @@ If two elements have the same frequency, sort them by increasing value.
 solve([2,3,5,3,7,9,5,3,7]) = [3,3,3,5,5,7,7,2,9]
 */
 function solve(arr){
-    // arr.sort()
-    // let result = [];
-    // let counter = {}
-    // for(let i = 0; i < arr.length; i++){
-    //   let frequent = arr[i]
-    //   // let index = arr.indexOf(counter[frequent])
-    //   counter[frequent] ? counter[frequent] += 1 : counter[frequent] = 1
-    //   console.log(counter[frequent])
-    //   console.log(counter)
-    // }
-    // for(let key in arr){
-    //   result.push([key , arr[key]])
-    // }
-    // result.sort((a ,b) => {
-    //   return b[1] - a[1]
-    // })
-    
-    // return result
   
     let counter = {};
     let result = [];
