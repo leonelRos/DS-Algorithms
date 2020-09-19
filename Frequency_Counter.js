@@ -103,7 +103,6 @@ function same(arr1, arr2) {
   console.log(frequencyCounter2);
   return true;
 }
-
 console.log(same([1, 3, 9, 1], [1, 1, 81, 9]));
 console.log(same([1, 3, 9], [2, 6, 9, 81]));
 console.log(same([1, 3, 9, 10], [2, 6, 9, 81]));
