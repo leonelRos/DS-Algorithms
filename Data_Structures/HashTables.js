@@ -28,13 +28,16 @@ class HashTable {
     }
     return total;
   }
+  //setting up our hashmap and adding key value pairs with separate chaining(we nested our data for multple input in the same bucket)
   set(key, value) {
     let index = this.hash(key);
     if (!this.keyMap[index]) {
-      this.keyMap[index] = [];
+      this.keyMap[index] = []; //[ , , ,[[ , ], [ , ]] , , ,]
     }
     this.keyMap[index].push([key, value]);
   }
+
+  //we want to retrive the key from the hashs table. or check if each pair has a unique key
   get(key) {
     let index = this.hash(key);
     if (this.keyMap[index]) {
@@ -46,26 +49,38 @@ class HashTable {
     }
     return undefined;
   }
+
+  //retreiving the key of each bucket in our hashmap
   keys() {
     let keysArr = [];
     for (let i = 0; i < this.keyMap.length; i++) {
+      //loop through out entire hashmap
       if (this.keyMap[i]) {
+        //check if exist  and check for subarrays
         for (let j = 0; j < this.keyMap[i].length; j++) {
+          //loop through subarrays
           if (!keysArr.includes(this.keyMap[i][j][0])) {
-            keysArr.push(this.keyMap[i][j][0]);
+            //make sure there are not duplicates of keys in oour hashmap
+            keysArr.push(this.keyMap[i][j][0]); //push to our initialized arary because we want to keep in insisde of DS
           }
         }
       }
     }
     return keysArr;
   }
+
+  //retreiving values of our bucket
   values() {
     let valArr = [];
     for (let i = 0; i < this.keyMap.length; i++) {
+      //loop through out entire hashmap
       if (this.keyMap[i]) {
+        //check if exist  and check for subarrays
         for (let j = 0; j < this.keyMap[i].length; j++) {
+          //loop through subarrays
           if (!valArr.includes(this.keyMap[i][j][1])) {
-            valArr.push(this.keyMap[i][j][1]);
+            //make sure there are not duplicates of values in our hashmap if so, return once
+            valArr.push(this.keyMap[i][j][1]); //push to our initialized arary because we want to keep in insisde of DS
           }
         }
       }
@@ -73,6 +88,7 @@ class HashTable {
     return valArr;
   }
 }
+
 let ht = new HashTable(17);
 ht.set("maroon", "#800000");
 ht.set("yellow", "#FFFF00");
