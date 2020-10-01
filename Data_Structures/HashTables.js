@@ -99,3 +99,35 @@ ht.set("mediumvioletred", "#C71585");
 ht.set("plum", "#DDA0DD");
 ht.set("purple", "#DDA0DD");
 ht.set("violet", "#DDA0DD");
+
+/*
+Given two strings, determine if they share a common substring. A substring may be as small as one character.
+For example, the words "a", "and", "art" share the common substring . The words "be" and "cat" do not share a substring.
+Function Description
+Complete the function twoStrings in the editor below. It should return a string, either YES or NO based on whether the strings share a common substring.
+twoStrings has the following parameter(s):
+s1, s2: two strings to analyze .
+Input Format:
+
+"hello"
+"world"
+"hi"
+"world"
+*/
+function twoStrings(s1, s2) {
+  let letterCounter = {};
+  for (let i = 0; i < s1.length; i++) {
+    let letter_1 = s1[i];
+    letterCounter[letter_1] = (letterCounter[letter_1] || 0) + 1;
+    console.log(letterCounter);
+  }
+  for (let i = 0; i < s2.length; i++) {
+    let letter2 = s2[i];
+    if (letterCounter[letter2]) {
+      return "YES";
+    }
+  }
+  return "NO";
+}
+console.log(twoStrings("helloo", "yellow")); //yes
+console.log(twoStrings("hi", "world")); //NO
