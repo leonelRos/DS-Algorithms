@@ -183,3 +183,34 @@ var getHint = function (secret, guess) {
   //  return bulls + "A" + cows + "B"
   return `${bulls}A${cows}B`;
 };
+
+/*
+Given a string s, find the length of the longest substring without repeating characters.
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+*/
+
+var lengthOfLongestSubstring = function (str) {
+  var res = 0;
+  var tem = [];
+  for (var char of str) {
+    var idx = tem.indexOf(char);
+    if (idx > -1) {
+      tem = tem.slice(idx + 1);
+    }
+    tem.push(char);
+    if (tem.length > res) {
+      res = tem.length;
+    }
+  }
+  return res;
+};
