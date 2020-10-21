@@ -18,7 +18,7 @@ function bubbleSort(arr){
           noSwaps = false
         } 
       }
-      if (noSwaps) break; // breaks the loop in the array once the lements have been placed
+      if (noSwaps) break; // breaks the loop in the array once the elements have been placed in the right position
     }
       return arr;
     }
