@@ -65,6 +65,22 @@ class Node {
       }
       return current; //returns the deleted node
     }
+    //shift deletes the first element in the lis =  head
+  shift(){
+    //if there are no nodes return undefined
+    if(!this.head) return undefined;
+    //store current head in a variable
+    var removedHead = this.head;
+    //set the current head to be the next current head
+    this.head = removedHead.next
+    //decrease length
+    this.length--;
+    // check if length is 0 set tail to null
+    if(this.length === 0){
+      this.tail =null
+    }
+    return removedHead; //return the removed head
+  }
   }
   
   let list = new SinglyLinkedList();
