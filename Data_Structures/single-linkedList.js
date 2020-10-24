@@ -81,6 +81,24 @@ class Node {
     }
     return removedHead; //return the removed head
   }
+  //this method add a new node to the start of the list and we pass a value becaue we are adding data
+  unshift(val){
+    //create a new node passing a value
+      var newHead = new Node(val);
+      //if the head doesnt not exist assign the new new node to be the head and tail
+      if(!this.head){
+        this.head = newHead;
+        this.tail = this.head;
+      } else {
+        //set the new node's next data to be the current head in the list
+        newHead.next = this.head;
+        //set the head data to be the new node created
+        this.head = newHead;
+      }
+      //incrment the length
+      this.length++;
+      return this; //return the new node
+    }
   }
   
   let list = new SinglyLinkedList();
