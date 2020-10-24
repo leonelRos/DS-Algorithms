@@ -129,9 +129,9 @@ class Node {
     //checking edge cases if idx -1 or longer than length
     if(idx < 0 || idx > this.length) return false;
     // if idx equal to length that means add new node to last so we use push method
-    if(idx === this.length) return this.push(val);
+    if(idx === this.length) return !!this.push(val); // the "!!" helps us to modified our return into boolean like true or false.
     // if idx is equal to 0, means add new node to the begining of the list, we use unshift method
-    if(idx === 0) return this.unshift(val);
+    if(idx === 0) return !!this.unshift(val);
     //create a new node that is going to be insert
     var insertedNode = new Node(val);
     //grab the index before the given index, using get return the idx -1 return the index before
@@ -144,6 +144,21 @@ class Node {
     this.length++;
     return true;
   }
+    //remove method, removes a node from a given idx
+remove(idx){
+  //edge cases where to use shift and pop methods
+  if(idx < 0 || idx >= this.length) return undefined;
+  if(idx === 0) return this.shift();
+  if(idx === this.length - 1) return this.pop();
+  //get the previous node from the retrieving node
+  var previousNode = this.get(idx - 1);
+  //store the target node in to a variable
+  var removedNode = previousNode.next;
+  //make the now previous next point to the next node
+  previousNode.next = removedNode.next
+  this.length--;
+  return removedNode; //returned the remove node
+}  
   }
   
   let list = new SinglyLinkedList();
