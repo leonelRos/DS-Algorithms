@@ -124,6 +124,26 @@ class Node {
     }
     return false;
   }
+  // insert method takes two param and inserts before the index given and move the old next node to be the new node next
+  insert(idx, val){
+    //checking edge cases if idx -1 or longer than length
+    if(idx < 0 || idx > this.length) return false;
+    // if idx equal to length that means add new node to last so we use push method
+    if(idx === this.length) return this.push(val);
+    // if idx is equal to 0, means add new node to the begining of the list, we use unshift method
+    if(idx === 0) return this.unshift(val);
+    //create a new node that is going to be insert
+    var insertedNode = new Node(val);
+    //grab the index before the given index, using get return the idx -1 return the index before
+    var prev = this.get(idx - 1);
+    //create a temporary placeholder and assign it to the new Node
+    var temp = prev.next;
+    prev.next = insertedNode;
+    //make the new node point at the temporary node
+    insertedNode.next = temp;
+    this.length++;
+    return true;
+  }
   }
   
   let list = new SinglyLinkedList();
