@@ -42,7 +42,7 @@ class Node {
     //pop method deletes from the last node!
     pop(){
       //if the list is empty
-      if(this.head == null) return undefined;
+      if(!this.head) return undefined;
       //we start from the head
       var current = this.head;
       var newTail = current;
@@ -98,6 +98,20 @@ class Node {
       //incrment the length
       this.length++;
       return this; //return the new node
+    }
+    //get specific node assigning indexes
+  get(idx){
+    //edge csae  
+      if(idx < 0 || idx >= this.length) return null;
+      // set a counter and start from the head
+      var counter = 0;
+      var current = this.head
+      //loop while the counter is not equal to the index, once equal return the node
+      while(counter !== idx){
+        current = current.next;
+        counter++;
+      }
+      return current;
     }
   }
   
