@@ -159,7 +159,30 @@ remove(idx){
   this.length--;
   return removedNode; //returned the remove node
 }  
+//reversing a single linked list without making a copy of the list
+reverse(){
+  //swap head and tail
+  var node = this.head;
+  this.head = this.tail;
+  this.tail= node;
+  //create variables next, previous,
+  var next;
+  var previous = null;
+  //loop through the list
+  for(var i = 0; i < this.length; i++){
+    //set next to be the next node in the list
+    next = node.next;
+    //set the next node to be the previous node 
+    node.next= previous;
+    // set previous to be the new node variable
+    previous = node;
+    // set the node valua to be the next variable
+    node = next;
   }
+  //return the list
+  return this;
+  }
+}
   
   let list = new SinglyLinkedList();
   list.push('head')
