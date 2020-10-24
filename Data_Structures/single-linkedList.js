@@ -113,6 +113,17 @@ class Node {
       }
       return current;
     }
+      //set method takes an index and change the value of that inex with the gelp of the get() method
+  set(idx, val){
+    //assign the get method to a variable. get method returns the value
+    var foundNode = this.get(idx);
+    // if the node is found assigned to new val
+    if(foundNode){
+      foundNode.val = val;
+      return true
+    }
+    return false;
+  }
   }
   
   let list = new SinglyLinkedList();
