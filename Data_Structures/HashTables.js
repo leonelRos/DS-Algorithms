@@ -236,7 +236,7 @@ var numIdenticalPairs = function (nums) {
   let count = 0;
   let hash = new Array(101).fill(0);
   for (let num of nums) {
-    count = count + hash[num]++; //the count increases when element in the num has repetitve elements.
+    count = count + hash[num]++; //the count increases when element in the num has repetitve elements
   }
   return count;
 };
