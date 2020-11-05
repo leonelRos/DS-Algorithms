@@ -210,8 +210,9 @@ var getDecimalValue = function (head) {
   while (head) {
     //while head is true
     // console.log(arr.unshift(head.val))
-    arr.unshift(head.val); //unshift insert element to the first of the array
-    head = head.next;
+    arr.unshift(head.val); //unshift insert element at the beginning of the array
+    head = head.next; //always point to the next element in linkedlist
   }
+  //t                                               node * 2^idx
   return arr.reduce((sum, cur, idx) => (cur ? sum + Math.pow(2, idx) : sum), 0);
 };
