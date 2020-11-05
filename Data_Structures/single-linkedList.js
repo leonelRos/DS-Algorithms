@@ -197,7 +197,12 @@ Given head which is a reference node to a singly-linked list.
 The value of each node in the linked list is either 0 or 1. 
 The linked list holds the binary representation of a number.
 Return the decimal value of the number in the linked list.
-input : 
+input : head = [1, 0, 1] = (1 * 2^2) + (0 * 2^1) + (1 * 2^0)
+output : 5
+explanation: (101) in base 2 = (5) in base 10
+
+Input: head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
+Output: 18880
 */
 
 var getDecimalValue = function (head) {
