@@ -191,3 +191,22 @@ let list = new SinglyLinkedList();
 list.push("head");
 list.push("body");
 list.push("tail");
+
+/*
+Given head which is a reference node to a singly-linked list. 
+The value of each node in the linked list is either 0 or 1. 
+The linked list holds the binary representation of a number.
+Return the decimal value of the number in the linked list.
+input : 
+*/
+
+var getDecimalValue = function (head) {
+  let arr = []; //create an array to pull each data from the list and parse into it.
+  while (head) {
+    //while head is true
+    // console.log(arr.unshift(head.val))
+    arr.unshift(head.val); //unshift insert element to the first of the array
+    head = head.next;
+  }
+  return arr.reduce((sum, cur, idx) => (cur ? sum + Math.pow(2, idx) : sum), 0);
+};
