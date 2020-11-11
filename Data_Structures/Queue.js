@@ -6,6 +6,12 @@ Printing / Task processing
 
 A FIFO data structure!
 First In First Out
+
+BIG O of QUEUES
+Insertion -   O(1)
+Removal -   O(1)
+Searching -   O(N) 
+Access -   O(N)
 */
 
 class Node {
