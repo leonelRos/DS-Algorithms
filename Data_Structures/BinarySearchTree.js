@@ -134,3 +134,50 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
+
+/*leetcode problem */
+// Given the root node of a binary search tree, return the sum of values of all nodes with a value in the range [low, high].
+// Input: root = [10,5,15,3,7,null,18], low = 7, high = 15
+// Output: 32
+
+//                   10
+//                 /   \
+//               5      15
+//              / \       \
+//            3    7       18
+
+// * Definition for a binary tree node.
+// * function TreeNode(val, left, right) {
+// *     this.val = (val===undefined ? 0 : val)
+// *     this.left = (left===undefined ? null : left)
+// *     this.right = (right===undefined ? null : right)
+// * }
+// */
+// /**
+// * @param {TreeNode} root
+// * @param {number} low
+// * @param {number} high
+// * @return {number}
+// */
+var rangeSumBST = function (root, low, high) {
+  let sum = 0;
+  function dfs(node) {
+    //pass a node
+    if (!node) return; //checking if node exists
+    //check within the range
+    if (node.val >= low && node.val <= high) {
+      sum += node.val; //add the sum
+    }
+    //traverse throught he tree
+    //if the low is less than value operate the range if statement
+    if (low < node.val) {
+      dfs(node.left);
+    }
+    if (high > node.val) {
+      dfs(node.right);
+    }
+  }
+  //invoke helpe method passing the root given
+  dfs(root);
+  return sum;
+};
