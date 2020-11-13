@@ -48,14 +48,15 @@ If there is, move to that node and repeat these steps
 If there is not, add that node as the left property
   */
   insert(value) {
-    var newNode = new Node(value);
+    var newNode = new Node(value); //create a node
     if (this.root === null) {
       this.root = newNode;
       return this;
     }
-    var current = this.root;
+    var current = this.root; //keep track of current position of our value
     while (true) {
-      if (value === current.value) return undefined;
+      //while true run this loop
+      if (value === current.value) return undefined; //check if current value inserted already exixts
       if (value < current.value) {
         if (current.left === null) {
           current.left = newNode;
@@ -90,10 +91,11 @@ If there is not, add that node as the left property
   // If there is, move to that node and repeat these steps
   // If there is not, we're done searching!
   find(value) {
-    if (this.root === null) return false;
-    var current = this.root;
-    var found = false;
+    if (this.root === null) return false; //check our root
+    var current = this.root; //keep track of current position of the value
+    var found = false; //assigned false
     while (current && !found) {
+      //while current value and it has not been found
       if (value < current.value) {
         current = current.left;
       } else if (value > current.value) {
@@ -103,7 +105,7 @@ If there is not, add that node as the left property
       }
     }
     if (!found) return undefined;
-    return current;
+    return current; //return the value intended.
   }
 
   //this code works as well as find but return boolean true or false instead.
