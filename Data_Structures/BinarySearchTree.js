@@ -12,6 +12,15 @@ Every parent node has at most two children
 Every node to the left of a parent node is always less than the parent
 Every node to the right of a parent node is always greater than the parent
 
+TRAVERSE A TREE:
+Visit every node at once
+There are two ways to traverse a tree
+TRAVERSING A TREE
+Two ways:
+
+Breadth-first Search
+Depth-first Search
+
 Big O of BST
 Insertion - O(log n)
 Searching - O(log n)
@@ -124,6 +133,99 @@ If there is not, add that node as the left property
   //   }
   //   return false;
   // }
+
+//   Steps - Iteratively
+
+// Create a queue (this can be an array) and a variable to store the values of nodes visited
+// Place the root node in the queue
+// Loop as long as there is anything in the queue
+// Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
+// If there is a left property on the node dequeued - add it to the queue
+// If there is a right property on the node dequeued - add it to the queue
+// Return the variable that stores the values
+
+  bfs(){ //traverse a tree per levels start with root then children from left to right and go on
+    var node = this.root
+    var queue = []
+    var data= []
+    queue.push(node);
+    while (queue.length){
+      node = queue.shift()
+      data.push(node.value)
+      if(node.left) queue.push(node.left)
+      if(node.right) queue.push(node.right)
+    }
+    return data;
+  }
+
+  Steps - Recursively
+
+DFS - PreOrder
+Create a variable to store the values of nodes visited
+Store the root of the BST in a variable called current
+Write a helper function which accepts a node
+Push the value of the node to the variable that stores the values
+If the node has a left property, call the helper function with the left property on the node
+If the node has a right property, call the helper function with the right property on the node
+Invoke the helper function with the current variable
+Return the array of values
+  DFSPreOrder(){ //traverse the tree starting from root then the left side and then right side
+    var data = []; //Stack
+    var current = this.root
+    function traverse(node){
+      data.push(node.value)
+      if(node.left) traverse(node.left)
+      if(node.right) traverse(node.right)
+    }
+    traverse(current)
+    return data;
+  }
+
+  Steps - Recursively
+
+DFS - PostOrder
+Create a variable to store the values of nodes visited
+Store the root of the BST in a variable called current
+Write a helper function which accepts a node
+If the node has a left property, call the helper function with the left property on the node
+If the node has a right property, call the helper function with the right property on the node
+Push the value of the node to the variable that stores the values
+Invoke the helper function with the current variable
+Return the array of values
+  DFSPostOrder(){ // traverse to left side then the right side and finally adds the root.
+     var data = []; //Stack
+    var current = this.root
+    function traverse(node){
+      if(node.left) traverse(node.left)
+      if(node.right) traverse(node.right)
+      data.push(node.value)
+    }
+    traverse(current)
+    return data;
+  }
+
+  Steps - Recursively
+
+DFS - InOrder
+Create a variable to store the values of nodes visited
+Store the root of the BST in a variable called current
+Write a helper function which accepts a node
+If the node has a left property, call the helper function with the left property on the node
+Push the value of the node to the variable that stores the values
+If the node has a right property, call the helper function with the right property on the node
+Invoke the helper function with the current variable
+Return the array of values
+  DFSInOrder(){ //Always return sorted list from loest to highest
+     var data = []; //Stack
+    var current = this.root
+    function traverse(node){
+      if(node.left) traverse(node.left)
+      data.push(node.value)
+      if(node.right) traverse(node.right)
+    }
+    traverse(current)
+    return data;
+  }
 }
 
 var tree = new BinarySearchTree();
