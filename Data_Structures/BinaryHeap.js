@@ -63,10 +63,14 @@ class MaxBinaryHeap {
   // The child index you swapped to now becomes the new parent index.
   // Keep looping and swapping until neither child is larger than the element.
   // Return the old root!
+
+  // when removing from a MaxBinary Heap always start from highest node or root
   extractMax() {
-    let max = this.value[0];
-    let end = this.value.pop();
+    let max = this.value[0]; //the first element in the BH
+    let end = this.value.pop(); //pop the last element
     if (this.value.length > 0) {
+      //add statement to not because once BH reaches the last elment it will pop itself and push back on the BH. AKA infinite loop
+      //swap the frist element with last and store last in variable max
       this.value[0] = end;
       this.bubbleDown();
     }
@@ -77,18 +81,20 @@ class MaxBinaryHeap {
     let length = this.value.length;
     let element = this.value[0];
     while (true) {
-      let leftChildIdx = 2 * idx + 1;
-      let rightChildIdx = 2 * idx + 2;
+      let leftChildIdx = 2 * idx + 1; //formula to find first children from a parent
+      let rightChildIdx = 2 * idx + 2; //formula to find second children from same parent
       let leftChild, rightChild;
       let swap = null;
 
       if (leftChildIdx < length) {
+        //to check it doesnt go out of bounce
         leftChild = this.value[leftChildIdx];
         if (leftChild > element) {
           swap = leftChildIdx;
         }
       }
       if (rightChildIdx < length) {
+        //to check it doesnt go out of bounds
         rightChild = this.value[rightChildIdx];
         if (
           (swap === null && rightChild > element) ||
@@ -123,6 +129,9 @@ Write a Min Binary Heap - lower number means higher priority.
 Each Node has a val and a priority.  Use the priority to build the heap.
 Enqueue method accepts a value and priority, makes a new node, and puts it in the right spot based off of its priority.
 Dequeue method removes root element, returns it, and rearranges heap using priority.
+
+Priority Queue is build from minBinaryHeap which menas lower number is the highest priority.
+It is the same set up as the previous MaxBinary heap only changing acouple of things but adding the priority parameter
 
  Big O of Binary Heaps
 Insertion -   O(log N)
