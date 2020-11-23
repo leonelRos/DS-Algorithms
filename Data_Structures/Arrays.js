@@ -46,6 +46,7 @@ function minimumBribes(q) {
   return bribeCounter;
 }
 
+//swap method
 function swapPositions(q, a, b) {
   let curr = q[a];
   q[a] = q[b];
