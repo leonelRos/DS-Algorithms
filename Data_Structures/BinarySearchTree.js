@@ -285,3 +285,14 @@ var rangeSumBST = function (root, low, high) {
   dfs(root);
   return sum;
 };
+
+//Maximum Depth of Binary Tree
+
+var maxDepth = function (root) {
+  if (root === null) return 0;
+  if (!root.left) return maxDepth(root.right) + 1;
+  if (!root.right) return maxDepth(root.left) + 1;
+  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+};
+
+console.log(maxDepth([3, 9, 20, null, null, 15, 7])); // 3
