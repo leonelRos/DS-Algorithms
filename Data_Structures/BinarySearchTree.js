@@ -286,12 +286,26 @@ var rangeSumBST = function (root, low, high) {
   return sum;
 };
 
-//Maximum Depth of Binary Tree
+//Maximum Depth of Binary Tree:
+
+// Given the root of a binary tree, return its maximum depth.
+
+// A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+// //                           3             1
+//                             /   \
+// //                       9       20        1
+//                                 /   \          ==> return 3
+// //                             15     7    1
 
 var maxDepth = function (root) {
+  //case base if root equal null return 0
   if (root === null) return 0;
+  // check left side first, if not move to the right and imcrement  + 1
   if (!root.left) return maxDepth(root.right) + 1;
+  // check right side, if not move to the left and imcrement  + 1
   if (!root.right) return maxDepth(root.left) + 1;
+  //after acumulate the number of nodes/position on each side. Calculate the max between them plus the root + 1
   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
 
