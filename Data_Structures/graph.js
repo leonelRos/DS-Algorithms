@@ -153,6 +153,13 @@ class Graph {
           queue.push(neighbor);
         }
       });
+      //IF WE WANT TO TRAVERSE FROM RIGHT TO LEFT
+      // this.adjacencyList[currentVertex].slice().reverse().forEach((neighbor) => {
+      //   if (!visited[neighbor]) {
+      //     visited[neighbor] = true;
+      //     queue.push(neighbor);
+      //   }
+      // });
     }
     return result;
   }
