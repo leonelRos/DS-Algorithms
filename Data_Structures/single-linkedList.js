@@ -3,7 +3,8 @@
         head                               tail
 
     Single LinkedList are linear node where each node conatins data
-    Linkedlist are defined because of the arrows, there is always arrows referencing to the next node. in order to traverse a linkedlist you always start from the head and go on to the second one and so on.
+    Linkedlist are defined because of the arrows, there is always arrows referencing to the next node. 
+    in order to traverse a linkedlist you always start from the head and go on to the second one and so on.
     time complexity=
     insertion: O(1)
     removal: O(1) depeneding how long the list or which index could be O(N)
