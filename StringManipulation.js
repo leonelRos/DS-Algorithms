@@ -50,3 +50,30 @@ Input: "<div><div><b></b></div></p>"
 Output: div
 Input: "<div>abc</div><p><em><i>test test test</b></em></p>" '''
  */
+
+function HTMLElements(str) {
+  const stack = [];
+  const tags = str.match(/<\/?\w+>/g);
+  const closeTagPattern = /\//;
+
+  for (let i = 0; i < tags.length; i++) {
+    if (!closeTagPattern.test(tags[i])) {
+      stack.push(tags[i].replace(/[<>]/g, ""));
+    } else {
+      const closeTagType = tags[i].replace(/[\/<>]/g, "");
+      if (closeTagType === stack[stack.length - 1]) {
+        stack.pop();
+      } else {
+        return stack[stack.length - 1];
+      }
+    }
+  }
+
+  if (stack.length === 0) {
+    return true;
+  } else {
+    return stack[stack.length - 1];
+  }
+}
+
+console.log(HTMLElements("<div><div><b></b></div></p>"));
