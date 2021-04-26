@@ -54,9 +54,11 @@ Input: "<div>abc</div><p><em><i>test test test</b></em></p>" '''
 function HTMLElements(str) {
   const stack = [];
   const tags = str.match(/<\/?\w+>/g);
+  console.log(tags);
   const closeTagPattern = /\//;
 
   for (let i = 0; i < tags.length; i++) {
+    console.log(tags[i]);
     if (!closeTagPattern.test(tags[i])) {
       stack.push(tags[i].replace(/[<>]/g, ""));
     } else {
@@ -76,4 +78,4 @@ function HTMLElements(str) {
   }
 }
 
-console.log(HTMLElements("<div><div><b></b></div></p>"));
+console.log(HTMLElements("<div><div><b>Hello</b></div></p>"));
