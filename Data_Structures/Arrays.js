@@ -78,9 +78,6 @@ function FindIntersection(strArr) {
       if (newStr2 === newStr1) {
         result.push(newStr1);
       }
-      //  else if (result.length === 0) {
-      //   return false;
-      // }
     }
   }
   if (result.length === 0) {
@@ -92,3 +89,26 @@ function FindIntersection(strArr) {
 console.log(FindIntersection(["1, 5, 6, 7, 10, 11, 12", "5, 6, 8, 11, 17"]));
 console.log(FindIntersection(["1, 2, 4, 5, 6, 9", "2, 3, 4, 8, 10"]));
 console.log(FindIntersection(["5, 6, 9, 11, 12, 16", "4, 6, 7, 11, 16"]));
+
+/*
+Equivalent Keypresses
+Have the function EquivalentKeypresses(strArr) read the array of strings stored in strArr which will contain 2 strings representing two comma separated lists of keypresses. 
+Your goal is to return the string true if the keypresses produce the same printable string and the string false if they do not.
+ A keypress can be either a printable character or a backspace represented by -B. 
+You can produce a printable string from such a string of keypresses by having backspaces erase one preceding character.
+*/
+function EquivalentKeypresses(strArr) {
+  const checkKeyPressed = (str) => {
+    let result = "";
+    let stack = str.split(",");
+
+    stack.forEach((item, idx) => {
+      if (stack[idx + 1] !== "-B" && stack[idx] !== "-B") {
+        result += item;
+      }
+    });
+    return result;
+  };
+  return checkKeyPressed(strArr[0]) === checkKeyPressed(strArr[1]);
+}
+console.log(EquivalentKeypresses(["a,b,c,d", "a,b,c,d,-B,d"]));
