@@ -56,3 +56,39 @@ function swapPositions(q, a, b) {
 console.log(minimumBribes([2, 1, 5, 3, 4])); //3
 console.log(minimumBribes([2, 5, 1, 3, 4])); //too chaotic
 console.log(minimumBribes([3, 1, 4, 5, 6, 7, 2])); //6
+
+/*
+Find Intersection
+Have the function FindIntersection(strArr) read the array of strings stored in strArr which will contain 2 elements: 
+the first element will represent a list of comma-separated numbers sorted in ascending order, 
+the second element will represent a second list of comma-separated numbers (also sorted). 
+Your goal is to return a comma-separated string containing the numbers that occur in elements of strArr in sorted order.
+ If there is no intersection, return the string false.
+*/
+
+function FindIntersection(strArr) {
+  let str1 = strArr[0].split(", ");
+  let str2 = strArr[1].split(", ");
+  let result = [];
+  for (let i = 0; i < str1.length; i++) {
+    let newStr1 = str1[i];
+
+    for (let i = 0; i < str2.length; i++) {
+      let newStr2 = str2[i];
+      if (newStr2 === newStr1) {
+        result.push(newStr1);
+      }
+      //  else if (result.length === 0) {
+      //   return false;
+      // }
+    }
+  }
+  if (result.length === 0) {
+    return false;
+  } else {
+    return result.join(",");
+  }
+}
+console.log(FindIntersection(["1, 5, 6, 7, 10, 11, 12", "5, 6, 8, 11, 17"]));
+console.log(FindIntersection(["1, 2, 4, 5, 6, 9", "2, 3, 4, 8, 10"]));
+console.log(FindIntersection(["5, 6, 9, 11, 12, 16", "4, 6, 7, 11, 16"]));
